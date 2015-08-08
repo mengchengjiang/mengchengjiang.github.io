@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>PAT-数据结构 | null</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="simonjiang">
+  
+  
+    <meta name="description" content="在PAT上做题缘起于参加了网易云课程的数据结构,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）
+##PAT 01-1 最大子列和问题
+###最暴力的做法直接做两个for循环，对于每一个固定的a[i]为开">
+  
+  <meta name="description" content="在PAT上做题缘起于参加了网易云课程的数据结构,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）
+##PAT 01-1 最大子列和问题
+###最暴力的做法直接做两个for循环，对于每一个固定的a[i]为开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT-数据结构">
+<meta property="og:url" content="http://mengchengjiang.github.io/2015/01/21/PAT-homework/index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="在PAT上做题缘起于参加了网易云课程的数据结构,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）
+##PAT 01-1 最大子列和问题
+###最暴力的做法直接做两个for循环，对于每一个固定的a[i]为开">
+<meta property="og:updated_time" content="2015-05-04T01:33:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PAT-数据结构">
+<meta name="twitter:description" content="在PAT上做题缘起于参加了网易云课程的数据结构,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）
+##PAT 01-1 最大子列和问题
+###最暴力的做法直接做两个for循环，对于每一个固定的a[i]为开">
+  
+  
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '[object Object]']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">null</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/01/21/PAT-homework/">
+  <time datetime="2015-01-21T01:15:36.000Z">
+    1月 21 2015
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">PAT-数据结构</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>在<a href="http://www.patest.cn/" target="_blank" rel="external">PAT</a>上做题缘起于参加了网易云课程的<a href="http://www.icourse163.org/learn/zju-93001#/learn/announce" target="_blank" rel="external">数据结构</a>,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）</p>
+<p>##PAT 01-1 最大子列和问题</p>
+<p>###最暴力的做法<br>直接做两个for循环，对于每一个固定的a[i]为开端的子序列做一个遍历，然后比较子序列和。这样做思路是最暴力简单的，但是也是带来了许多重复计算的问题，其算法复杂度为O(n^2)结果这种方法也是没有AC。<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def normal(num_list):&#10;    max_len_list = -1&#10;    for i in range(len(num_list)):&#10;        tem = num_list[i]&#10;        max_len_list = max(tem,max_len_list)&#10;        for j in range(i+1 , len(num_list)):&#10;            tem += num_list[j]&#10;            max_len_list = max(max_len_list,tem)&#10;    if max_len_list &#60; 0:&#10;        return 0&#10;    else:&#10;        return max_len_list&#10;&#10;num_input = raw_input()&#10;line = raw_input()&#10;num_list = []&#10;for tem in line.split():&#10;    num_list.append(int(tem))&#10;print normal(num_list)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>测试点</th>
+<th>结果</th>
+<th>用时(ms)</th>
+<th>内存(kB)</th>
+<th>得分/满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5111</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>答案正确</td>
+<td>10</td>
+<td>5112</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>答案正确</td>
+<td>96</td>
+<td>5236</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>运行超时</td>
+<td></td>
+<td></td>
+<td>0/4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>运行超时</td>
+<td></td>
+<td></td>
+<td>0/4</td>
+</tr>
+</tbody>
+</table>
+<p>###在线比较方法<br>所谓的在线，就是指每输入一个数据，就更新现在的最优值，也就是说只需要遍历一次所有的数据，就能够得出所有的结构，所以这是一个非常好的算法，其算法复杂度为O(n)。</p>
+<p><strong>关键点在于</strong></p>
+<ol>
+<li>用一个数记录下当前子序列和的值，如果新增的数据使得当前的子序列的和小于零，则表示这一段子序列无论如何也用不上，所以抛弃之，使它的值更新为零。如果新增的数据使得子序列的和还是大于零，这个新增的数加入子序列中，继续操作。</li>
+<li>用一个数记录每次更新的子序列的值，保存每次的最大值。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def oneline(num_list):&#10;    max_len_list = 0&#10;    tem = 0;&#10;    for i in range(len(num_list)):&#10;        tem += num_list[i]&#10;        max_len_list = max(tem,max_len_list)&#10;        if tem &#60; 0:&#10;            tem = 0&#10;    return max_len_list&#10;&#10;num_input = raw_input()&#10;line = raw_input()&#10;num_list = []&#10;for tem in line.split():&#10;    num_list.append(int(tem))&#10;print oneline(num_list)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>测试点</th>
+<th>结果</th>
+<th>用时(ms)</th>
+<th>内存(kB)</th>
+<th>得分/满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>答案正确</td>
+<td>9</td>
+<td>3408</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5112</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>答案正确</td>
+<td>10</td>
+<td>3240</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>答案正确</td>
+<td>17</td>
+<td>3624</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>答案正确</td>
+<td>84</td>
+<td>8784</td>
+<td>4/4</td>
+</tr>
+</tbody>
+</table>
+<p>##PAT01-2 最大子序列和（变形）<br>这道题是01-1的变形，只是在输出最大子序列和的基础上，再输出这个子序列头尾的数字。基本思路还是在线处理方法，但是用多几个数去存储计算最大子序列和时候头尾的坐标，所以也是很容易实现的。</p>
+<p>这道题有两个坑需要注意的：第四个测试点是需要计算当所有的数字都为负数时，输出0和这个数组的头尾两个数。第五个测试点当中有一部分数为零，其他均为负数，这时候输出的结果应该是0，0，0。注意到这两个坑之后，程序就很简单实现了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def oneline(num_list):&#10;    tem = 0 #&#20020;&#26102;&#23384;&#20648;&#26368;&#22823;&#23376;&#24207;&#21015;&#21644;&#10;    begin = 0#&#35760;&#24405;&#24403;&#21069;&#23376;&#24207;&#21015;&#30340;&#24320;&#31471;&#10;    end = -1#&#35760;&#24405;&#24403;&#21069;&#23376;&#24207;&#21015;&#30340;&#32467;&#23614;&#10;    max_len_list = -1 #&#19981;&#35774;&#32622;&#20026;&#38646;&#30340;&#21407;&#22240;&#22312;&#20110;&#38656;&#35201;&#38024;&#23545;&#27979;&#35797;&#28857;5&#30340;&#24773;&#20917;&#65306;&#26377;&#19968;&#37096;&#20998;&#20026;&#38646;&#65292;&#20854;&#20182;&#22343;&#20026;&#36127;&#25968;&#10;    max_begin  = 0&#10;    max_end = -1&#10;    for i in range(len(num_list)):&#10;        tem += num_list[i]&#10;        end += 1&#10;        if (max_len_list &#60; tem):&#10;            max_len_list = tem&#10;            max_begin = begin&#10;            max_end = end&#10;        if tem &#60; 0:&#10;            tem = 0&#10;            begin = i+1&#10;            end = i&#10;    if max_len_list &#60; 0:&#10;        print 0,num_list[0],num_list[-1]&#10;    else:&#10;        print max_len_list,num_list[max_begin],num_list[max_end]&#10;&#10;num_input = raw_input()&#10;line = raw_input()&#10;num_list = []&#10;for tem in line.split():&#10;    num_list.append(int(tem))&#10;oneline(num_list)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>测试点</th>
+<th>结果</th>
+<th>用时(ms)</th>
+<th>内存(kB)</th>
+<th>得分/满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>答案正确</td>
+<td>9</td>
+<td>4192</td>
+<td>2/2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>答案正确</td>
+<td>10</td>
+<td>4300</td>
+<td>1/1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>答案正确</td>
+<td>9</td>
+<td>2876</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>答案正确</td>
+<td>8</td>
+<td>2576</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>答案正确</td>
+<td>9</td>
+<td>2568</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>答案正确</td>
+<td>9</td>
+<td>2616</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>答案正确</td>
+<td>9</td>
+<td>4508</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>7</td>
+<td>答案正确</td>
+<td>16</td>
+<td>4144</td>
+<td>5/5</td>
+</tr>
+</tbody>
+</table>
+<p>##PAT02-2 一元多项式求导<br>非常简单的一道题，用Python实现的优势就凸显出来了，处理起来很快。用数组来实现链表的功能。就不多解释了。需要注意的是求导出来是零时候输出应该是0 0。所以在程序中对这种情况额外判断即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">line = raw_input()&#10;num_list = line.split()&#10;a = 0&#10;b = 1&#10;flag = 0&#10;while (a &#60; len(num_list)):&#10;    j = int(num_list[b])-1&#10;    i = int(num_list[a])* int(num_list[b])&#10;    a += 2&#10;    b += 2&#10;    if i != 0:&#10;        print i,j,&#10;        flag = 1&#10;if flag == 0:&#10;    print 0,0</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>测试点</th>
+<th>结果</th>
+<th>用时(ms)</th>
+<th>内存(kB)</th>
+<th>得分/满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5112</td>
+<td>12/12</td>
+</tr>
+<tr>
+<td>1</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5112</td>
+<td>4/4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5108</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5112</td>
+<td>3/3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>答案正确</td>
+<td>9</td>
+<td>5112</td>
+<td>3/3</td>
+</tr>
+</tbody>
+</table>
+<p>##PAT02-3 求前缀表达式的值<br>这道题主要是用到了栈。Python中的数组本身就具有许多栈的操作，a=[],a.pop(),a.append(obj)。也让我这种懒人方便了很多。</p>
+<p>主要步骤如下：</p>
+<ol>
+<li>读取一个字符串，压入栈中。</li>
+<li>读取第二个字符串，压入栈中，如果这个字符串是数字，则弹出三个在栈中的数据，进行计算，将计算结果压入栈中。然后剩下的就是递归。</li>
+</ol>
+<p>当然在实际编写的过程当中并没有简单。感觉自己编写的程序还是过于人类的思考方式，而不是计算机的思考方式。编程路上还是任重道远啊。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import string&#10;&#10;def is_digit(string):&#10;    if string == &#34;*&#34; or string == &#34;/&#34; or string == &#34;+&#34; or string == &#34;-&#34;:&#10;        return False&#10;    else:&#10;        return True&#10;&#10;def cal(num1,string,num2):&#10;    if string == &#34;*&#34;:&#10;        return num1*num2&#10;    elif string == &#34;/&#34;:&#10;        return num1/num2&#10;    elif string == &#34;+&#34;:&#10;        return num1+num2&#10;    elif string == &#34;-&#34;:&#10;        return num1-num2&#10;    else:&#10;        raise Exception(&#34;ERROR&#34;)&#10;&#10;list = raw_input().split()&#10;stack = []&#10;for elem in list:&#10;    try:&#10;        if is_digit(elem):&#10;            tem = string.atof(elem)&#10;            stack.append(tem)&#10;            while is_digit(stack[-2]) :&#10;                num2 = stack.pop()&#10;                num1 = stack.pop()&#10;                calculator = stack.pop()&#10;                stack.append(cal(num1,calculator,num2))&#10;        else:&#10;            stack.append(elem)&#10;    except:&#10;        if len(stack) == 1:&#10;            print round(stack[0],1)&#10;        else:&#10;            print &#34;ERROR&#34;&#10;        break</span><br></pre></td></tr></table></figure>
+<p>###<strong>Python 小技巧</strong>：</p>
+<ol>
+<li><strong><strong>string.atof</strong></strong>是个很实用的函数，可以将带符号的字符串转为数字。例如“-1”“+1”，都可以识别出来。在编写的时候有一段时间是用了isdigit(str)这个函数，但是无法识别符号是个硬伤。</li>
+<li><strong>round(float,n)</strong>保留n个小数点</li>
+<li>在Python中print是默认有回车的，如果想不要回车，那么在print后加“，”就可以实现，例如：”print a,b，”</li>
+<li><strong>try,except</strong>是实用的函数。主要是用来处理异常信息，也可以让自己在编程当中偷懒不少，不过就是要是编出来的程序答案不对，那么就需要自己去找异常信息了。</li>
+</ol>
+<h2 id="PAT03-1_二分法求多项式单根">PAT03-1 二分法求多项式单根</h2><p> 写得一点都不优雅，还是将就着吧。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> import string&#10;&#10;def result(a3,a2,a1,a0,x):&#10;    return a3*pow(x,3)+a2*pow(x,2)+a1*x+a0&#10;&#10;line1 = raw_input()&#10;line2 = raw_input()&#10;a = line1.split()&#10;x = line2.split()&#10;a3 = string.atof(a[0])&#10;a2 = string.atof(a[1])&#10;a1 = string.atof(a[2])&#10;a0 = string.atof(a[3])&#10;x1 = string.atof(x[0])&#10;x2 = string.atof(x[1])&#10;&#10;left_result = result(a3,a2,a1,a0,x1)&#10;right_result = result(a3,a2,a1,a0,x2)&#10;&#10;&#10;while (abs(x1-x2)&#62; pow(10,-3)):&#10;    mid = (x1+x2)/2&#10;    if result(a3,a2,a1,a0,mid) * result(a3,a2,a1,a0,x2) &#60; 0:&#10;        x1 = mid&#10;    elif result(a3,a2,a1,a0,mid) * result(a3,a2,a1,a0,x1) &#60; 0:&#10;        x2 = mid&#10;    else:&#10;        break&#10;if abs(result(a3,a2,a1,a0,x1)) &#60; pow(10,-4):&#10;    print &#34;%.2f&#34;%x1&#10;elif abs(result(a3,a2,a1,a0,x2)) &#60; pow(10,-4):&#10;    print &#34;%.2f&#34;%x2&#10;else:&#10;    print &#34;%.2f&#34;%((x1+x2)/2)</span><br></pre></td></tr></table></figure>
+    
+  </div>
+  <footer>
+    
+      
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/算法/">算法</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">simonjiang</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+</body>
+</html>
