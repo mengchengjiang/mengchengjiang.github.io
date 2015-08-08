@@ -5,22 +5,22 @@
   
   <title>Python实现数据结构——栈，队列 | 再劫</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##前言栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为基本定义，Python代码实现，主要用途。
-##栈、队列的定义用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。
-##Python代码实现在Python中使用一维数组来实现栈，使用循环数组来实现队列。">
+  <meta name="description" content="前言栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为基本定义，Python代码实现，主要用途。
+栈、队列的定义用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。
+Python代码实现在Python中使用一维数组来实现栈，使用循环数组来实现队列。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python实现数据结构——栈，队列">
 <meta property="og:url" content="http://mengchengjiang.github.io/2015/01/20/python-data-structure-15-1-20/index.html">
 <meta property="og:site_name" content="再劫">
-<meta property="og:description" content="##前言栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为基本定义，Python代码实现，主要用途。
-##栈、队列的定义用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。
-##Python代码实现在Python中使用一维数组来实现栈，使用循环数组来实现队列。">
-<meta property="og:updated_time" content="2015-05-04T01:33:02.000Z">
+<meta property="og:description" content="前言栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为基本定义，Python代码实现，主要用途。
+栈、队列的定义用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。
+Python代码实现在Python中使用一维数组来实现栈，使用循环数组来实现队列。">
+<meta property="og:updated_time" content="2015-08-08T18:11:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python实现数据结构——栈，队列">
-<meta name="twitter:description" content="##前言栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为基本定义，Python代码实现，主要用途。
-##栈、队列的定义用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。
-##Python代码实现在Python中使用一维数组来实现栈，使用循环数组来实现队列。">
+<meta name="twitter:description" content="前言栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为基本定义，Python代码实现，主要用途。
+栈、队列的定义用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。
+Python代码实现在Python中使用一维数组来实现栈，使用循环数组来实现队列。">
   
     <link rel="alternative" href="/atom.xml" title="再劫" type="application/atom+xml">
   
@@ -191,9 +191,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##前言<br>栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为<strong>基本定义</strong>，<strong>Python代码实现</strong>，<strong>主要用途</strong>。</p>
-<p>##栈、队列的定义<br>用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。</p>
-<p>##Python代码实现<br>在Python中使用一维数组来实现栈，使用循环数组来实现队列。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Stack:&#10;    def __init__(self,size):&#10;        self.stack = []&#10;        self.size = size&#10;        self.Top = -1&#10;    def isFull(self):&#10;        if self.Top+1 &#62;= self.size :&#10;            return True&#10;        else:&#10;            return False&#10;    def isEmpty(self):&#10;        if self.Top == -1 :&#10;            return True&#10;        else :&#10;            return False&#10;    def push(self,obj):&#10;        if self.isFull():&#10;            raise Exception( &#34;error,stack is full&#34;)&#10;        else:&#10;            self.stack.append(obj)&#10;            self.Top += 1&#10;    def pop(self):&#10;        if self.isEmpty() :&#10;            raise Exception( &#34;error,stack is empty&#34;)&#10;        else :&#10;            self.Top -= 1&#10;            return self.stack.pop()&#10;    def peek(self):&#10;        if self.isEmpty() :&#10;            raise Exception( &#34;error,stack is empty&#34;)&#10;        else :&#10;            return self.stack[self.Top]&#10;    def show(self):&#10;        print self.stack</span><br></pre></td></tr></table></figure></p>
+        <h2 id="前言">前言</h2><p>栈和队列是数据结构当中最基础的两个结构，所以作为这个系列的开山第一篇，来确定一下以后文章的结构是怎样，做一个好的框架。打算主要分为<strong>基本定义</strong>，<strong>Python代码实现</strong>，<strong>主要用途</strong>。</p>
+<h2 id="栈、队列的定义">栈、队列的定义</h2><p>用来描述栈和队列可以非常简单，先入后出的是栈，先入先出的队列。</p>
+<h2 id="Python代码实现">Python代码实现</h2><p>在Python中使用一维数组来实现栈，使用循环数组来实现队列。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Stack:&#10;    def __init__(self,size):&#10;        self.stack = []&#10;        self.size = size&#10;        self.Top = -1&#10;    def isFull(self):&#10;        if self.Top+1 &#62;= self.size :&#10;            return True&#10;        else:&#10;            return False&#10;    def isEmpty(self):&#10;        if self.Top == -1 :&#10;            return True&#10;        else :&#10;            return False&#10;    def push(self,obj):&#10;        if self.isFull():&#10;            raise Exception( &#34;error,stack is full&#34;)&#10;        else:&#10;            self.stack.append(obj)&#10;            self.Top += 1&#10;    def pop(self):&#10;        if self.isEmpty() :&#10;            raise Exception( &#34;error,stack is empty&#34;)&#10;        else :&#10;            self.Top -= 1&#10;            return self.stack.pop()&#10;    def peek(self):&#10;        if self.isEmpty() :&#10;            raise Exception( &#34;error,stack is empty&#34;)&#10;        else :&#10;            return self.stack[self.Top]&#10;    def show(self):&#10;        print self.stack</span><br></pre></td></tr></table></figure></p>
 <p>队列的实现是用循环数组，这样的好处是数组的大小是可以事先固定下来的，但是就是需要多使用一个位置来记录下来是否空和满的情况。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class Queue:&#10;    def __init__(self,x):&#10;        self.size = x&#10;        self.queue = [0]*x&#10;        self.front = 0&#10;        self.rear = 0&#10;    def isEmpty(self):&#10;        if self.front == self.rear:&#10;            return True&#10;        else:&#10;            return False&#10;    def isFull(self):&#10;        if (self.rear+1)%self.size == self.front:&#10;            return True&#10;        else:&#10;            return False&#10;    def add(self,obj):&#10;        if self.isFull():&#10;            raise Exception(&#34;error,queue is full&#34;)&#10;        else:&#10;            self.rear = (self.rear+1)%self.size&#10;            self.queue[self.rear] = obj&#10;    def delete(self):&#10;        if self.isEmpty():&#10;            raise Exception(&#34;error,queue is empty&#34;)&#10;        else:&#10;            tem = self.queue[self.front]&#10;            self.front = (self.front+1)%self.size&#10;            return tem&#10;    def peek(self):&#10;        if self.isEmpty():&#10;            raise Exception(&#34;error,queue is empty&#34;)&#10;        else:&#10;            return self.queue[self.front+1]&#10;    def show(self):&#10;        if self.isEmpty():&#10;            raise Exception(&#34;error,queue is empty&#34;)&#10;        else:&#10;            a = self.front&#10;            b = self.rear&#10;            while (a != b):&#10;                print self.queue[a+1],&#10;                a = (a+1)%self.size</span><br></pre></td></tr></table></figure>
 <h2 id="主要用途">主要用途</h2><p>1.栈和队列都可以用在一些递归当中。不过一般的深度递归，都可以直接在函数中调用，当然程序底层是类似做了个栈的行为。在广度递归当中，就需要首先定义一个队列，然后再进行递归了，队列在递归中的用途会更广泛一些。</p>
@@ -218,7 +218,7 @@
     </a>
   
   
-    <a href="/2015/01/20/new/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/01/20/python/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Python应用系列</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
