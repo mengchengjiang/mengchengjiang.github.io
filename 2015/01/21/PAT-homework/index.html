@@ -13,7 +13,7 @@ PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对�
 <meta property="og:site_name" content="再劫">
 <meta property="og:description" content="在PAT上做题缘起于参加了网易云课程的数据结构,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）
 PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对于每一个固定的a[i]为开端的子序列做">
-<meta property="og:updated_time" content="2015-08-09T04:26:04.000Z">
+<meta property="og:updated_time" content="2015-08-09T04:31:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT-数据结构">
 <meta name="twitter:description" content="在PAT上做题缘起于参加了网易云课程的数据结构,一开始的时候是为了学习Java顺便补补数据结构，现在呢，还是为了宝贵的时间，用Python作为主力吧。（惊奇的发现，同样的方法，Python的运算时间竟然更短，说好的Java更具有效率呢，或许是跟Java的Scanner有关吧，或许吧。。。。）
@@ -105,7 +105,7 @@ PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+						<a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
 					</div>
 				</section>
 				
@@ -239,7 +239,7 @@ PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对�
 </tr>
 </tbody>
 </table>
-<p>###在线比较方法<br>所谓的在线，就是指每输入一个数据，就更新现在的最优值，也就是说只需要遍历一次所有的数据，就能够得出所有的结构，所以这是一个非常好的算法，其算法复杂度为O(n)。</p>
+<h3 id="在线比较方法">在线比较方法</h3><p>所谓的在线，就是指每输入一个数据，就更新现在的最优值，也就是说只需要遍历一次所有的数据，就能够得出所有的结构，所以这是一个非常好的算法，其算法复杂度为O(n)。</p>
 <p><strong>关键点在于</strong></p>
 <ol>
 <li>用一个数记录下当前子序列和的值，如果新增的数据使得当前的子序列的和小于零，则表示这一段子序列无论如何也用不上，所以抛弃之，使它的值更新为零。如果新增的数据使得子序列的和还是大于零，这个新增的数加入子序列中，继续操作。</li>
@@ -294,7 +294,7 @@ PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对�
 </tr>
 </tbody>
 </table>
-<p>##PAT01-2 最大子序列和（变形）<br>这道题是01-1的变形，只是在输出最大子序列和的基础上，再输出这个子序列头尾的数字。基本思路还是在线处理方法，但是用多几个数去存储计算最大子序列和时候头尾的坐标，所以也是很容易实现的。</p>
+<h2 id="PAT01-2_最大子序列和（变形）">PAT01-2 最大子序列和（变形）</h2><p>这道题是01-1的变形，只是在输出最大子序列和的基础上，再输出这个子序列头尾的数字。基本思路还是在线处理方法，但是用多几个数去存储计算最大子序列和时候头尾的坐标，所以也是很容易实现的。</p>
 <p>这道题有两个坑需要注意的：第四个测试点是需要计算当所有的数字都为负数时，输出0和这个数组的头尾两个数。第五个测试点当中有一部分数为零，其他均为负数，这时候输出的结果应该是0，0，0。注意到这两个坑之后，程序就很简单实现了。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">oneline</span><span class="params">(num_list)</span>:</span></span><br><span class="line">    tem = <span class="number">0</span> <span class="comment">#临时存储最大子序列和</span></span><br><span class="line">    begin = <span class="number">0</span><span class="comment">#记录当前子序列的开端</span></span><br><span class="line">    end = -<span class="number">1</span><span class="comment">#记录当前子序列的结尾</span></span><br><span class="line">    max_len_list = -<span class="number">1</span> <span class="comment">#不设置为零的原因在于需要针对测试点5的情况：有一部分为零，其他均为负数</span></span><br><span class="line">    max_begin  = <span class="number">0</span></span><br><span class="line">    max_end = -<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(num_list)):</span><br><span class="line">        tem += num_list[i]</span><br><span class="line">        end += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (max_len_list &lt; tem):</span><br><span class="line">            max_len_list = tem</span><br><span class="line">            max_begin = begin</span><br><span class="line">            max_end = end</span><br><span class="line">        <span class="keyword">if</span> tem &lt; <span class="number">0</span>:</span><br><span class="line">            tem = <span class="number">0</span></span><br><span class="line">            begin = i+<span class="number">1</span></span><br><span class="line">            end = i</span><br><span class="line">    <span class="keyword">if</span> max_len_list &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">print</span> <span class="number">0</span>,num_list[<span class="number">0</span>],num_list[-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">print</span> max_len_list,num_list[max_begin],num_list[max_end]</span><br><span class="line"></span><br><span class="line">num_input = raw_input()</span><br><span class="line">line = raw_input()</span><br><span class="line">num_list = []</span><br><span class="line"><span class="keyword">for</span> tem <span class="keyword">in</span> line.split():</span><br><span class="line">    num_list.append(int(tem))</span><br><span class="line">oneline(num_list)</span><br></pre></td></tr></table></figure>
 <table>
@@ -366,7 +366,7 @@ PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对�
 </tr>
 </tbody>
 </table>
-<p>##PAT02-2 一元多项式求导<br>非常简单的一道题，用Python实现的优势就凸显出来了，处理起来很快。用数组来实现链表的功能。就不多解释了。需要注意的是求导出来是零时候输出应该是0 0。所以在程序中对这种情况额外判断即可。</p>
+<h2 id="PAT02-2_一元多项式求导">PAT02-2 一元多项式求导</h2><p>非常简单的一道题，用Python实现的优势就凸显出来了，处理起来很快。用数组来实现链表的功能。就不多解释了。需要注意的是求导出来是零时候输出应该是0 0。所以在程序中对这种情况额外判断即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">line = raw_input()</span><br><span class="line">num_list = line.split()</span><br><span class="line">a = <span class="number">0</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">flag = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (a &lt; len(num_list)):</span><br><span class="line">    j = int(num_list[b])-<span class="number">1</span></span><br><span class="line">    i = int(num_list[a])* int(num_list[b])</span><br><span class="line">    a += <span class="number">2</span></span><br><span class="line">    b += <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> i != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">print</span> i,j,</span><br><span class="line">        flag = <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> flag == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">print</span> <span class="number">0</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
@@ -443,7 +443,7 @@ PAT 01-1 最大子列和问题最暴力的做法直接做两个for循环，对�
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          8-09
+          project_euler刷题报告
         
       </div>
     </a>
