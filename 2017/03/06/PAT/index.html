@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/06/PAT/index.html">
 <meta property="og:site_name" content="再劫">
 <meta property="og:description" content="这里记录的是在PAT上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。">
-<meta property="og:updated_time" content="2017-03-06T06:39:09.000Z">
+<meta property="og:updated_time" content="2017-03-06T06:59:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PAT-乙级">
 <meta name="twitter:description" content="这里记录的是在PAT上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。">
@@ -184,16 +184,700 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这里记录的是在<a href="http://www.patest.cn/" target="_blank" rel="external">PAT</a>上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。<br><a id="more"></a></p>
-<h2 id="1001">1001</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">num = int(sys.stdin.readline())</div><div class="line"></div><div class="line">cnt = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> num != <span class="number">1</span>:</div><div class="line">  <span class="keyword">if</span> num % <span class="number">2</span> !=<span class="number">0</span>:</div><div class="line">    num = (<span class="number">3</span>*num + <span class="number">1</span>)/<span class="number">2</span></div><div class="line">  <span class="keyword">else</span>:</div><div class="line">    num = num / <span class="number">2</span></div><div class="line">  cnt += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> cnt</div></pre></td></tr></table></figure>
-<h2 id="1002">1002</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">num2py</span><span class="params">(i)</span>:</span></div><div class="line">    <span class="keyword">if</span> i == <span class="string">'1'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'yi'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'2'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'er'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'3'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'san'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'4'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'si'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'5'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'wu'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'6'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'liu'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'7'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'qi'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'8'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'ba'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'9'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'jiu'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'0'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'ling'</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'cuo'</span></div><div class="line"></div><div class="line"></div><div class="line">num  = sys.stdin.readline().strip()</div><div class="line"><span class="comment"># num = '1234567890987654321123456789'</span></div><div class="line"></div><div class="line">sum = sum([int(i) <span class="keyword">for</span> i <span class="keyword">in</span> num])</div></pre></td></tr></table></figure>
-<p>##1004<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">input = sys.stdin.readlines()</div><div class="line"></div><div class="line">lineCnt = int(input[<span class="number">0</span>])</div><div class="line"></div><div class="line">highScore = <span class="number">-999</span></div><div class="line">lowScore = <span class="number">999</span></div><div class="line"></div><div class="line">resultHighName = <span class="string">''</span></div><div class="line">resultHighCourse = <span class="string">''</span></div><div class="line">resultLowName = <span class="string">''</span></div><div class="line">resultLowCourse = <span class="string">''</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> input[<span class="number">1</span>:]:</div><div class="line">    name,course,score = line.split(<span class="string">' '</span>)</div><div class="line">    <span class="keyword">if</span> float(score) &gt; highScore:</div><div class="line">        resultHighName = name</div><div class="line">        resultHighCourse = course</div><div class="line">        highScore = float(score)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> float(score) &lt; lowScore:</div><div class="line">        resultLowName = name</div><div class="line">        resultLowCourse = course</div><div class="line">        lowScore = float(score)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">print</span> resultHighName + <span class="string">' '</span> + resultHighCourse</div><div class="line"><span class="keyword">print</span> resultLowName + <span class="string">' '</span> + resultLowCourse</div></pre></td></tr></table></figure></p>
-<h2 id="1005">1005</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">input = sys.stdin.readlines()</div><div class="line"><span class="comment"># input = open('testInput.csv','r').readlines()</span></div><div class="line"></div><div class="line">cnt = int(input[<span class="number">0</span>].strip())</div><div class="line">numList = map(int,input[<span class="number">1</span>].strip().split(<span class="string">' '</span>))</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">threeNOne</span><span class="params">(keyDict,num)</span>:</span></div><div class="line"></div><div class="line">    num = (num / <span class="number">2</span>) <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">else</span> (<span class="number">3</span> * num + <span class="number">1</span>)/<span class="number">2</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> num == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> num <span class="keyword">in</span> keyDict:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        keyDict[num] = <span class="number">1</span></div><div class="line"></div><div class="line">    threeNOne(keyDict,num)</div><div class="line"></div><div class="line">keyDict = &#123;&#125;</div><div class="line"><span class="comment"># numList = [3,5,6,7,8,11]</span></div><div class="line"></div><div class="line">[threeNOne(keyDict,num) <span class="keyword">for</span> num <span class="keyword">in</span> numList ]</div><div class="line"></div><div class="line">result = sorted([num <span class="keyword">for</span> num <span class="keyword">in</span> numList <span class="keyword">if</span> num <span class="keyword">not</span> <span class="keyword">in</span> keyDict],reverse = <span class="keyword">True</span>)</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">" "</span>.join(map(str,result))</div></pre></td></tr></table></figure>
-<p>##1006</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">input = sys.stdin.readlines()</div><div class="line"><span class="comment">#</span></div><div class="line">num = int(input[<span class="number">0</span>].strip())</div><div class="line"><span class="comment"># num = 230</span></div><div class="line"></div><div class="line">BCnt = num / <span class="number">100</span></div><div class="line">SCnt = num / <span class="number">10</span> % <span class="number">10</span></div><div class="line">GCnt = num % <span class="number">100</span> % <span class="number">10</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">"B"</span>*BCnt + <span class="string">"S"</span>*SCnt + <span class="string">''</span>.join(map(str,range(<span class="number">1</span>,<span class="number">10</span>)[:GCnt]))</div></pre></td></tr></table></figure>
-<p>##1007</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">input = sys.stdin.readlines()</div><div class="line"></div><div class="line">num = int(input[<span class="number">0</span>].strip())</div><div class="line"><span class="comment"># num = 10</span></div><div class="line">flagList = range(num+<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,int(num ** <span class="number">0.5</span> + <span class="number">1</span>)):</div><div class="line"></div><div class="line">    tmp = i*<span class="number">2</span></div><div class="line">    <span class="keyword">while</span> tmp &lt;= num:</div><div class="line">        <span class="keyword">if</span> flagList[tmp]:</div><div class="line">           flagList[tmp] = <span class="number">0</span></div><div class="line">        tmp += i</div><div class="line"></div><div class="line">prime = [i <span class="keyword">for</span> i <span class="keyword">in</span> flagList <span class="keyword">if</span> i != <span class="number">0</span> <span class="keyword">and</span> i != <span class="number">1</span>]</div><div class="line"></div><div class="line">check = [j-i <span class="keyword">for</span> i,j <span class="keyword">in</span> zip(prime[:<span class="number">-1</span>],prime[<span class="number">1</span>:]) <span class="keyword">if</span> j-i == <span class="number">2</span>]</div><div class="line"></div><div class="line"><span class="keyword">print</span> prime</div><div class="line"><span class="keyword">print</span> len(check)</div><div class="line"><span class="keyword">print</span> [(i,j,j-i) <span class="keyword">for</span> i,j <span class="keyword">in</span> zip(prime[:<span class="number">-2</span>],prime[<span class="number">1</span>:]) ]</div></pre></td></tr></table></figure>
-<p>##1008</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># input = sys.stdin.readlines()</span></div><div class="line">input = open(<span class="string">'testInput.csv'</span>,<span class="string">'r'</span>).readlines()</div><div class="line"></div><div class="line">[long,change] = map(int,input[<span class="number">0</span>].strip().split())</div><div class="line">numList = input[<span class="number">1</span>].strip().split()</div><div class="line"></div><div class="line"><span class="keyword">if</span> change != <span class="number">0</span> :</div><div class="line">    <span class="comment"># print 'fuck 1'</span></div><div class="line">    <span class="keyword">print</span> <span class="string">" "</span>.join(numList[(-change):] + numList[:(-change)])</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="comment"># print 'fuck 2'</span></div><div class="line">    <span class="keyword">print</span> <span class="string">" "</span>.join(numList)</div></pre></td></tr></table></figure>
+<p>##1001<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>num = int(sys.stdin.readline())</p>
+<p>cnt = 0</p>
+<p>while num != 1:<br>  if num % 2 !=0:<br>    num = (3*num + 1)/2<br>  else:<br>    num = num / 2<br>  cnt += 1</p>
+<p>print cnt<br>!</p>
+<p>##1002<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>def num2py(i):<br>    if i == ‘1’:<br>        return ‘yi’<br>    elif i == ‘2’:<br>        return ‘er’<br>    elif i == ‘3’:<br>        return ‘san’<br>    elif i == ‘4’:<br>        return ‘si’<br>    elif i == ‘5’:<br>        return ‘wu’<br>    elif i == ‘6’:<br>        return ‘liu’<br>    elif i == ‘7’:<br>        return ‘qi’<br>    elif i == ‘8’:<br>        return ‘ba’<br>    elif i == ‘9’:<br>        return ‘jiu’<br>    elif i == ‘0’:<br>        return ‘ling’<br>    else:<br>        return ‘cuo’</p>
+<p>num  = sys.stdin.readline().strip()</p>
+<h1 id="num_=_‘1234567890987654321123456789’">num = ‘1234567890987654321123456789’</h1><p>sum = sum([int(i) for i in num])</p>
+<p>print ‘ ‘.join([num2py(i) for i in str(sum)])<br>!</p>
+<p>##1004<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<p>lineCnt = int(input[0])</p>
+<p>highScore = -999<br>lowScore = 999</p>
+<p>resultHighName = ‘’<br>resultHighCourse = ‘’<br>resultLowName = ‘’<br>resultLowCourse = ‘’</p>
+<p>for line in input[1:]:<br>    name,course,score = line.split(‘ ‘)<br>    if float(score) &gt; highScore:<br>        resultHighName = name<br>        resultHighCourse = course<br>        highScore = float(score)</p>
+<pre><code><span class="keyword">if</span> <span class="function"><span class="title">float</span><span class="params">(score)</span></span> &lt; lowScore:
+    resultLowName = name
+    resultLowCourse = course
+    lowScore = <span class="function"><span class="title">float</span><span class="params">(score)</span></span>
+</code></pre><p>print resultHighName + ‘ ‘ + resultHighCourse<br>print resultLowName + ‘ ‘ + resultLowCourse<br>!</p>
+<p>##1005<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()">input = open(‘testInput.csv’,’r’).readlines()</h1><p>cnt = int(input[0].strip())<br>numList = map(int,input[1].strip().split(‘ ‘))</p>
+<p>def threeNOne(keyDict,num):</p>
+<pre><code><span class="built_in">num</span> = (<span class="built_in">num</span> / <span class="number">2</span>) <span class="keyword">if</span> <span class="built_in">num</span> % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">else</span> (<span class="number">3</span> * <span class="built_in">num</span> + <span class="number">1</span>)/<span class="number">2</span>
+
+<span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">1</span>:
+    <span class="keyword">return</span>
+
+<span class="keyword">if</span> <span class="built_in">num</span> <span class="keyword">in</span> keyDict:
+    <span class="keyword">return</span>
+<span class="keyword">else</span>:
+    keyDict[<span class="built_in">num</span>] = <span class="number">1</span>
+
+threeNOne(keyDict,<span class="built_in">num</span>)
+</code></pre><p>keyDict = {}</p>
+<h1 id="numList_=_[3,5,6,7,8,11]">numList = [3,5,6,7,8,11]</h1><p>[threeNOne(keyDict,num) for num in numList ]</p>
+<p>result = sorted([num for num in numList if num not in keyDict],reverse = True)</p>
+<p>print “ “.join(map(str,result))!</p>
+<p>##1006<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()<br>#<br>num = int(input[0].strip())</p>
+<h1 id="num_=_230">num = 230</h1><p>BCnt = num / 100<br>SCnt = num / 10 % 10<br>GCnt = num % 100 % 10</p>
+<p>print “B”<em>BCnt + “S”</em>SCnt + ‘’.join(map(str,range(1,10)[:GCnt]))<br>!</p>
+<p>##1007<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<p>num = int(input[0].strip())</p>
+<h1 id="num_=_10">num = 10</h1><p>flagList = range(num+1)</p>
+<p>for i in range(2,int(num ** 0.5 + 1)):</p>
+<pre><code>tmp = i*<span class="number">2</span>
+<span class="keyword">while</span> tmp &lt;= num:
+    <span class="keyword">if</span> flagList[tmp]:
+       flagList[tmp] = <span class="number">0</span>
+    tmp += i
+</code></pre><p>prime = [i for i in flagList if i != 0 and i != 1]</p>
+<p>check = [j-i for i,j in zip(prime[:-1],prime[1:]) if j-i == 2]</p>
+<p>print prime<br>print len(check)<br>print [(i,j,j-i) for i,j in zip(prime[:-2],prime[1:]) ]<br>!</p>
+<p>##1008<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>#</p>
+<h1 id="input_=_sys-stdin-readlines()">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>[long,change] = map(int,input[0].strip().split())<br>numList = input[1].strip().split()</p>
+<p>if change != 0 :</p>
+<pre><code># <span class="keyword">print</span> <span class="string">'fuck 1'</span>
+<span class="keyword">print</span> <span class="string">" "</span>.<span class="keyword">join</span>(numList[(-change):] + numList[:(-change)])
+</code></pre><p>else:</p>
+<pre><code># <span class="keyword">print</span> <span class="string">'fuck 2'</span>
+<span class="keyword">print</span> <span class="string">" "</span>.<span class="keyword">join</span>(numList)
+</code></pre><p>!</p>
+<p>##1009<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>#<br>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-1">input = open(‘testInput.csv’,’r’).readlines()</h1><p>worldList = input[0].strip().split()</p>
+<p>print “ “.join(worldList[::-1])!</p>
+<p>##1010<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-1">input = sys.stdin.readlines()</h1><p>input = open(“testInput.csv”,’r’).readlines()</p>
+<p>array = map(int,input[0].strip().split(‘ ‘))</p>
+<p>xishuArray = array[::2]<br>miArray = array[1::2]</p>
+<p>newXishuArray = [i*j for i,j in zip(xishuArray,miArray) if i != 0 and j!= 0]<br>newMiArray = [j-1 for i,j in zip(xishuArray,miArray) if i != 0 and j != 0]</p>
+<p>newArray = sum(zip(newXishuArray,newMiArray),())</p>
+<h1 id="print_array">print array</h1><h1 id="print_newXishuArray">print newXishuArray</h1><h1 id="print_newMiArray">print newMiArray</h1><h1 id="print_newArray">print newArray</h1><p>if newArray :<br>    print “ “.join(map(str,newArray))<br>else:<br>    print “0 0”!</p>
+<p>##1011.py<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()">input = open(“testInput.csv”,’r’).readlines()</h1><p>cnt = int(input[0].strip())<br>contentList = input[1:]</p>
+<p>for i in range(cnt):</p>
+<pre><code>content = contentList<span class="comment">[i]</span>
+<span class="comment">[num1,num2,num3]</span> = map(int,contentList<span class="comment">[i]</span>.strip().split())
+
+toPrint = "Case #%s: <span class="string">"%str(i+1)
+if num1 + num2 &gt; num3:
+    print toPrint + "</span>true<span class="string">"
+else:
+    print toPrint + "</span>false<span class="string">"</span>
+</code></pre><p>!</p>
+<p>##1012<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-1">input = open(“testInput.csv”,’r’).readlines()</h1><p>numList = map(int,input[0].strip().split())[1:]</p>
+<p>A1 = []<br>A2 = []<br>A3 = []<br>A4 = []<br>A5 = []</p>
+<p>for i in numList:</p>
+<pre><code><span class="keyword">if</span> <span class="built_in">i</span> <span class="comment">% 5 == 0 and i%2 == 0:</span>
+    A1.append(<span class="built_in">i</span>)
+
+<span class="keyword">if</span> <span class="built_in">i</span> <span class="comment">% 5 == 1:</span>
+    A2.append(<span class="built_in">i</span>)
+
+<span class="keyword">if</span> <span class="built_in">i</span> <span class="comment">% 5 == 2:</span>
+    A3.append(<span class="built_in">i</span>)
+
+<span class="keyword">if</span> <span class="built_in">i</span> <span class="comment">% 5 == 3:</span>
+    A4.append(<span class="built_in">i</span>)
+
+<span class="keyword">if</span> <span class="built_in">i</span> <span class="comment">% 5 == 4:</span>
+    A5.append(<span class="built_in">i</span>)
+</code></pre><p>result1 = sum([i for i in A1]) if len(A1) != 0 else “N”<br>result2 = sum([i<em>j for i,j in zip(A2,[(-1)*</em>i for i in range(len(A2))])]) if len(A2) != 0 else “N”<br>result3 = len(A3) if len(A3) != 0 else “N”<br>result4 = “%.1f”%(float(sum(A4))/len(A4)) if len(A4) != 0 else “N”<br>result5 = max(A5) if len(A5) != 0 else “N”</p>
+<h1 id="print_numList">print numList</h1><h1 id="print_A1,A2,A3,A4,A5">print A1,A2,A3,A4,A5</h1><p>print “ “.join(map(str,[result1,result2,result3,result4,result5]))<br>!</p>
+<p>##1013<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-2">input = sys.stdin.readlines()</h1><p>input = open(“testInput.csv”,’r’).readlines()</p>
+<p>[m,n] = map(int,input[0].strip().split())</p>
+<h1 id="num_=_10-1">num = 10</h1><p>cnt = 10<em>*6<br>flagList = [True]</em>(cnt+1)</p>
+<p>for i in range(2,int(cnt ** 0.5 + 1)):</p>
+<pre><code>tmp = <span class="built_in">i</span>*<span class="number">2</span>
+<span class="keyword">while</span> tmp &lt;= cnt:
+    <span class="keyword">if</span> flagList<span class="matrix">[tmp]</span>:
+       flagList<span class="matrix">[tmp]</span> = False
+    tmp += <span class="built_in">i</span>
+</code></pre><p>prime = [index for flag,index in zip(flagList,range(len(flagList))) if flag]<br>mnPrime = prime[m+1:n+1]</p>
+<p>for i in range(len(mnPrime)/10+1):<br>    print “ “.join(map(str,mnPrime[i<em>10:(i</em>10+10)]))<br>!</p>
+<p>##1014<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-2">input = open(“testInput.csv”,’r’).readlines()</h1><p>word1 = input[0].strip()<br>word2 = input[1].strip()<br>word3 = input[2].strip()<br>word4 = input[3].strip()</p>
+<p>resultWeek = ‘’<br>resultHour = ‘’<br>resultMin = ‘’</p>
+<p>for i in range(min(len(word1),len(word2))):</p>
+<pre><code><span class="atom">if</span> <span class="atom">word1</span>[<span class="atom">i</span>] == <span class="atom">word2</span>[<span class="atom">i</span>] :
+    <span class="atom">if</span> <span class="atom">resultWeek</span> == <span class="string">''</span> <span class="atom">and</span> <span class="atom">word1</span>[<span class="atom">i</span>] &gt;= <span class="string">'A'</span> <span class="atom">and</span> <span class="atom">word1</span>[<span class="atom">i</span>] &lt;= <span class="string">'G'</span> :
+        <span class="atom">resultWeek</span> = <span class="atom">word1</span>[<span class="atom">i</span>]
+    <span class="atom">elif</span> <span class="atom">resultHour</span> == <span class="string">''</span> <span class="atom">and</span> <span class="atom">resultWeek</span> != <span class="string">''</span> <span class="atom">and</span> ((<span class="atom">word1</span>[<span class="atom">i</span>] &gt;= <span class="string">'A'</span> <span class="atom">and</span> <span class="atom">word1</span>[<span class="atom">i</span>] &lt;= <span class="string">'N'</span>) <span class="atom">or</span> <span class="atom">word1</span>[<span class="atom">i</span>].<span class="atom">isdigit</span>() ) :
+        <span class="atom">resultHour</span> = <span class="atom">word1</span>[<span class="atom">i</span>]
+</code></pre><p>for i in range(min(len(word3),len(word4))):</p>
+<pre><code><span class="keyword">if</span> word3[i] == word4[i] and word3[i].<span class="function"><span class="title">isalpha</span><span class="params">()</span></span>:
+    <span class="keyword">if</span> resultMin == <span class="string">''</span>:
+        resultMin = <span class="tag">i</span>
+        break
+</code></pre><h1 id="print_resultWeek">print resultWeek</h1><h1 id="print_resultHour">print resultHour</h1><h1 id="print_resultMin">print resultMin</h1><p>resultWeek = [‘MON’,’TUE’,’WED’,’THU’,’FRI’,’SAT’,’SUN’][ord(resultWeek) - 65]<br>resultHour = (“0”+resultHour)[-2:] if resultHour.isdigit() else str(ord(resultHour) -55)<br>resultMin = (“0” + str(resultMin))[-2:]</p>
+<p>print resultWeek + “ “ + resultHour + “:” + resultMin</p>
+<p>!</p>
+<p>##1015<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>from operator import itemgetter</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-3">input = open(“testInput.csv”,’r’).readlines()</h1><p>[cnt,mScore,hScore] = input[0].strip().split(‘ ‘)<br>contentList = [line.strip().split(‘ ‘) for line in input[1:]]</p>
+<p>math_MScore = [x+[int(x[1])+int(x[2])]+[-int(x[0])] for x in contentList if int(x[1]) &gt;= int(mScore) and int(x[2]) &gt;= int(mScore)]<br>math_MScore = sorted(math_MScore,key = itemgetter(3,1,2,4),reverse = True)</p>
+<p>math_DC = [x for x in math_MScore if int(x[1]) &gt;= int(hScore) and int(x[2]) &gt;= int(hScore)]<br>math_D = [x for x in math_MScore if int(x[1]) &gt;= int(hScore) and int(x[2]) &lt; int(hScore)]<br>math_DC_H = [x for x in math_MScore if int(x[1]) &lt; int(hScore) and int(x[2]) &lt; int(hScore) and int(x[1]) &gt;= int(x[2])]<br>math_DC_other = [x for x in math_MScore if x not in math_DC + math_D + math_DC_H]</p>
+<p>print len(math_MScore)<br>for math in math_DC:<br>    print “ “.join(math[:-2])</p>
+<p>for math in math_D:<br>    print “ “.join(math[:-2])</p>
+<p>for math in sorted(math_DC_H,key = itemgetter(3),reverse = True):<br>    print “ “.join(math[:-2])</p>
+<p>for math in sorted(math_DC_other,key = itemgetter(3),reverse = True):<br>    print “ “.join(math[:-2])<br>    !</p>
+<p>##1016<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>from operator import itemgetter</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-4">input = open(“testInput.csv”,’r’).readlines()</h1><p>numList = input[0].strip().split(‘ ‘)[::2]<br>dList = input[0].strip().split(‘ ‘)[1::2]</p>
+<p>sum = 0<br>for num,d in zip(numList,dList):<br>    sum = sum + (int(d*num.count(d)) if num.count(d) != 0 else 0)</p>
+<p>print sum<br>!</p>
+<p>##1017<br>! python<br><strong>author</strong> = ‘simonjiang’<br>import sys<br>from operator import itemgetter</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-5">input = open(“testInput.csv”,’r’).readlines()</h1><p>[num,d] = map(int,input[0].strip().split())</p>
+<p>print “ “.join([str(num/d),str(num%d)])<br>!</p>
+<p>##1018<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>from operator import itemgetter</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-6">input = open(“testInput.csv”,’r’).readlines()</h1><p>cnt = input[0].strip()<br>contentList = input[1:]</p>
+<p>def gameMatch(move1,move2):</p>
+<pre><code><span class="keyword">if</span> move1 == move2 :
+    <span class="keyword">return</span> <span class="number">0</span>
+
+elif (move1,move2) in [(<span class="string">'C'</span>,<span class="string">'J'</span>),(<span class="string">'J'</span>,<span class="string">'B'</span>),(<span class="string">'B'</span>,<span class="string">'C'</span>)]:
+    <span class="keyword">return</span> <span class="number">1</span>
+
+<span class="keyword">else</span>:
+    <span class="keyword">return</span> -<span class="number">1</span>
+</code></pre><p>index2Game = {‘B’:0,’C’:1,’J’:2}<br>game2Index = {0:’B’,1:’C’,2:’J’}<br>maxWinMove1 = [0,0,0]<br>maxWinMove2 = [0,0,0]</p>
+<p>[winMove1,loseMove1,pingMove1] = [0,0,0]</p>
+<p>for content in contentList:<br>    [move1,move2] = content.strip().split(‘ ‘)</p>
+<pre><code><span class="function"><span class="keyword">if</span> <span class="title">gameMatch</span><span class="params">(move1,move2)</span> </span>== <span class="number">0</span>:
+    pingMove1 += <span class="number">1</span>
+
+<span class="function">elif <span class="title">gameMatch</span><span class="params">(move1,move2)</span> </span>== <span class="number">1</span>:
+    maxWinMove1[index2Game[move1]] += <span class="number">1</span>
+    winMove1 += <span class="number">1</span>
+<span class="function">elif <span class="title">gameMatch</span><span class="params">(move1,move2)</span> </span>== -<span class="number">1</span>:
+    maxWinMove2[index2Game[move2]] += <span class="number">1</span>
+    loseMove1 += <span class="number">1</span>
+</code></pre><p>print “ “.join(map(str,[winMove1,pingMove1,loseMove1,]))<br>print “ “.join(map(str,[loseMove1,pingMove1,winMove1,]))<br>print game2Index[maxWinMove1.index(max(maxWinMove1))],game2Index[maxWinMove2.index(max(maxWinMove2))],<br>!</p>
+<p>##1019<br>! python<br><strong>author</strong> = ‘simonjiang’<br>import sys</p>
+<h1 id="import_time">import time</h1><p>from operator import itemgetter</p>
+<h1 id="cTime_=_time-time()">cTime = time.time()</h1><p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-7">input = open(“testInput.csv”,’r’).readlines()</h1><p>num = input[0].strip()<br>lenOfNum = len(num)<br>BLACKHOLD = ‘6174’<br>format = “%s - %s = %s”</p>
+<p>def tranNum(num,reverse = True):</p>
+<pre><code>tmp = int<span class="list">(''.join<span class="list">(<span class="keyword">sorted</span><span class="list">(<span class="keyword">num</span>,reverse = reverse)</span>)</span>)</span>
+
+return zeroFormat<span class="list">(<span class="keyword">tmp</span>)</span>
+</code></pre><p>def zeroFormat(num):</p>
+<pre><code>return (<span class="string">"0"</span>*lenOfNum + <span class="function"><span class="title">str</span><span class="params">(num)</span></span>)[-lenOfNum:]
+</code></pre><p>while True:</p>
+<pre><code>num1 = tranNum(<span class="built_in">num</span>,reverse = True)
+num2 = num1[::-<span class="number">1</span>]
+# num2 = tranNum(<span class="built_in">num</span>,reverse = False)
+value = <span class="built_in">int</span>(num1) - <span class="built_in">int</span>(num2)
+
+# <span class="built_in">print</span> <span class="built_in">num</span>,num1,num2,value
+<span class="built_in">print</span> format%(zeroFormat(num1),zeroFormat(num2),zeroFormat(value))
+
+<span class="built_in">num</span> = zeroFormat(value)
+
+<span class="keyword">if</span> <span class="built_in">num</span> == BLACKHOLD or <span class="built_in">num</span> == <span class="string">'0000'</span> :
+    <span class="keyword">break</span>
+</code></pre><h1 id="print_time-time()_-_cTime">print time.time() - cTime</h1><p>!</p>
+<p>##1020<br>! python<br><strong>author</strong> = ‘simonjiang’<br>!</p>
+<p>##1021<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="import_time-1">import time</h1><p>from operator import itemgetter</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-2">input = open(‘testInput.csv’,’r’).readlines()</h1><p>num = input[0].strip()<br>result = {}</p>
+<p>for d in set(num):<br>    result[d] = str(num.count(d))</p>
+<p>for d in sorted(result.keys()):<br>    print “%s:%s”%(d,result[d])</p>
+<p>!</p>
+<p>##1022<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="import_time-2">import time</h1><p>from operator import itemgetter</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-3">input = open(‘testInput.csv’,’r’).readlines()</h1><p>#<br>[num1,num2,base] = input[0].strip().split(‘ ‘)</p>
+<p>def tranBase(num,base):</p>
+<pre><code><span class="keyword">if</span> num / <span class="keyword">base</span> == <span class="number">0</span>:
+    <span class="keyword">return</span> str(num)
+<span class="keyword">elif</span> num / <span class="keyword">base</span> &gt;= <span class="keyword">base</span>:
+    <span class="keyword">return</span> tranBase(num/<span class="keyword">base</span>,<span class="keyword">base</span>) + tranBase(num - <span class="keyword">base</span>*(num/<span class="keyword">base</span>),<span class="keyword">base</span>)
+<span class="keyword">else</span>:
+    <span class="keyword">return</span> str(num/<span class="keyword">base</span>) + tranBase(num - <span class="keyword">base</span>*(num/<span class="keyword">base</span>),<span class="keyword">base</span>)
+</code></pre><p>print tranBase(int(num1) + int(num2),int(base))<br>!</p>
+<p>##1023<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-4">input = open(‘testInput.csv’,’r’).readlines()</h1><p>numList = map(int,input[0].strip().split(‘ ‘))</p>
+<p>result = ‘’<br>zeroFlag = 1<br>for i in range(1,len(numList)):</p>
+<pre><code><span class="comment"># print i,numList[i]</span>
+<span class="keyword">if</span> numList[i] != <span class="number">0</span>:
+    <span class="keyword">if</span> zeroFlag:
+        <span class="literal">result</span> = str(i) + '<span class="number">0</span>'*numList[<span class="number">0</span>] + str(i) * (numList[i] - <span class="number">1</span>)
+        zeroFlag = <span class="number">0</span>
+    <span class="keyword">else</span>:
+        <span class="literal">result</span> += str(i) * numList[i]
+</code></pre><p>print result<br>!</p>
+<p>##1024<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>import re</p>
+<h1 id="input_=_sys-stdin-readlines()-3">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>kxnum = input[0].strip()</p>
+<p>pattern = “<a href="[0-9]">+-</a>.([0-9]+)E([+-][0-9]+)”</p>
+<p>[(intNum,floatNum,exp)] = re.findall(pattern,kxnum)</p>
+<p>print intNum,floatNum,exp</p>
+<p>def</p>
+<p>if int(exp) &gt; 0 :<br>    print float<br>!</p>
+<p>##1026<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-5">input = open(‘testInput.csv’,’r’).readlines()</h1><p>[start,end] = map(int,input[0].strip().split(‘ ‘))</p>
+<p>def tranTime(time):</p>
+<pre><code>more = <span class="built_in">time</span>%<span class="number">100</span>
+<span class="built_in">time</span> = <span class="built_in">time</span>/<span class="number">100</span>
+
+hour = <span class="built_in">time</span>/(<span class="number">60</span>*<span class="number">60</span>)
+<span class="built_in">min</span> = (<span class="built_in">time</span> - hour*<span class="number">60</span>*<span class="number">60</span>)/<span class="number">60</span>
+<span class="built_in">sec</span> = <span class="built_in">time</span> - hour *<span class="number">60</span>*<span class="number">60</span> - <span class="built_in">min</span>*<span class="number">60</span>
+
+<span class="built_in">sec</span> = <span class="built_in">sec</span> +<span class="number">1</span> <span class="keyword">if</span> more&gt;=<span class="number">50</span> <span class="keyword">else</span> <span class="built_in">sec</span>
+<span class="constant">return</span> [hour,<span class="built_in">min</span>,<span class="built_in">sec</span>]
+</code></pre><p>def tranFormat(num):</p>
+<pre><code>return (<span class="string">"0"</span>+<span class="function"><span class="title">str</span><span class="params">(num)</span></span>)[-<span class="number">2</span>:]
+</code></pre><p>print “:”.join(map(tranFormat,tranTime(end - start)))<br>!</p>
+<p>##1027<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-4">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>[cnt,string] = input[0].strip().split(‘ ‘)</p>
+<p>def calTran(cnt):</p>
+<pre><code><span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(cnt,0,-1):
+    <span class="keyword">if</span> i % 2 == 0:
+        <span class="keyword">continue</span>
+    <span class="keyword">total</span> = <span class="literal">sum</span>([j <span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(i,1,-2)])
+
+    # <span class="keyword">print</span> <span class="literal">i</span>
+    <span class="keyword">if</span> <span class="keyword">total</span>*2 - 1 &lt; cnt:
+        <span class="keyword">return</span> i,cnt - <span class="keyword">total</span>*2 - 1
+</code></pre><p>def printFormat(string,start,cnt):<br>    return “ “<em>((start - cnt)/2) + string</em>cnt + “ “*((start - cnt)/2)</p>
+<p>start,stillHave = calTran(int(cnt))</p>
+<p>for i in range(start,1,-2) + range(1,start+1,2):</p>
+<pre><code><span class="comment"># print i</span>
+<span class="comment"># print len(printFormat(string,start,i))</span>
+<span class="built_in">print</span> <span class="built_in">print</span>Format(string,start,i)
+</code></pre><p>print stillHave<br>!</p>
+<p>##1029<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-6">input = open(‘testInput.csv’,’r’).readlines()</h1><p>correct = input[0].strip()<br>actual = input[1].strip()</p>
+<p>broken = []</p>
+<p>i = 0<br>j = 0<br>while (i != len(correct)) and (j != len(actual)):</p>
+<pre><code># <span class="keyword">print</span> correct[i],actual[j],i,j,broken
+<span class="keyword">if</span> actual[j] == correct[i]:
+    i += 1
+    j += 1
+<span class="keyword">else</span>:
+    # <span class="keyword">print</span> 'fuck',i,<span class="literal">j</span>
+    brokenKey = correct[i]
+    i += 1
+
+    <span class="keyword">if</span> brokenKey.<span class="literal">upper</span>() <span class="keyword">in</span> broken:
+        <span class="keyword">continue</span>
+
+    <span class="keyword">if</span> brokenKey.isalpha():
+         broken.<span class="keyword">append</span>(brokenKey.<span class="literal">upper</span>())
+    <span class="keyword">else</span>:
+        broken.<span class="keyword">append</span>(brokenKey)
+</code></pre><p>while (i != len(correct)):<br>    brokenKey = correct[i]<br>    i += 1</p>
+<pre><code><span class="keyword">if</span> brokenKey.<span class="function"><span class="title">upper</span><span class="params">()</span></span> <span class="keyword">in</span> broken:
+    continue
+
+<span class="keyword">if</span> brokenKey.<span class="function"><span class="title">isalpha</span><span class="params">()</span></span>:
+    broken.<span class="function"><span class="title">append</span><span class="params">(brokenKey.upper()</span></span>)
+<span class="keyword">else</span>:
+    broken.<span class="function"><span class="title">append</span><span class="params">(brokenKey)</span></span>
+</code></pre><p>print “”.join(broken)<br>!</p>
+<p>##1031<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-7">input = open(‘testInput.csv’,’r’).readlines()</h1><p>contentList = input[1:]<br>qz = [7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2]<br>z = “0 1 2 3 4 5 6 7 8 9 10”.split(‘ ‘)<br>M = “1 0 X 9 8 7 6 5 4 3 2”.split(‘ ‘)</p>
+<p>checkDict = dict(zip(z,M))</p>
+<p>def checkId(ID):</p>
+<pre><code>sumID = <span class="operator">0
+<span class="keyword">for</span> <span class="keyword">i</span>,j <span class="keyword">in</span> zip(<span class="keyword">ID</span>[:<span class="number">17</span>],<span class="keyword">range</span>(<span class="number">17</span>)):
+    <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">i</span>.isdigit():
+        <span class="keyword">return</span> <span class="literal">False</span>
+    # print <span class="keyword">i</span>,j
+    sumID += qz[j]*<span class="built_in">int</span>(<span class="keyword">i</span>)
+
+<span class="keyword">mod</span> = <span class="keyword">str</span>(sumID % <span class="number">11</span>)
+<span class="keyword">if</span> <span class="keyword">ID</span>[-<span class="number">1</span>] != checkDict[<span class="keyword">mod</span>]:
+    <span class="keyword">return</span> <span class="literal">False</span>
+<span class="keyword">else</span>:
+    <span class="keyword">return</span> <span class="literal">True</span></span>
+</code></pre><p>cnt = 0<br>result = []<br>for content in contentList:<br>    if not checkId(content.strip()):<br>       cnt += 1<br>       result.append(content.strip())</p>
+<p>if cnt == 0:<br>    print “All passed”<br>else:<br>    print “\n”.join(result)<br>!</p>
+<p>##1032<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-8">input = open(‘testInput.csv’,’r’).readlines()</h1><p>contentList = input[1:]</p>
+<p>scoreDict = {}<br>for content in contentList:<br>    [school,score] = content.split(‘ ‘)</p>
+<pre><code><span class="keyword">if</span> school not <span class="keyword">in</span> scoreDict:
+    scoreDict[school] = <span class="function"><span class="title">int</span><span class="params">(score)</span></span>
+<span class="keyword">else</span>:
+    scoreDict[school] += <span class="function"><span class="title">int</span><span class="params">(score)</span></span>
+</code></pre><p>maxScore = sorted([(v,k) for v,k in zip(scoreDict.values(),scoreDict.keys())],reverse = True)[0]</p>
+<p>print “%s %d”%(maxScore[1],maxScore[0])<br>!</p>
+<p>##1036<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-9">input = open(‘testInput.csv’,’r’).readlines()</h1><p>[cnt,alph] = input[0].strip().split(‘ ‘)</p>
+<p>lCnt = int(cnt)<br>sCnt = lCnt/2 if lCnt%2 == 0 else lCnt/2 + 1</p>
+<p>for i in range(sCnt):<br>    if i != 0 and i != sCnt - 1:<br>        print alph + “ “<em>(lCnt - 2) + alph<br>    else:<br>        print alph </em> lCnt<br>!</p>
+<p>##1037<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-10">input = open(‘testInput.csv’,’r’).readlines()</h1><p>contentList = input[0].strip().split(‘ ‘)</p>
+<p>def calKun(gCnt,sCnt,kCnt):</p>
+<pre><code><span class="keyword">return</span> <span class="number">29</span>*<span class="number">17</span>*gCnt + <span class="number">29</span>*sCnt + kCnt
+</code></pre><p>def tranKun(kCnt):</p>
+<pre><code>gCnt = kCnt / (<span class="number">29</span>*<span class="number">17</span>)
+sCnt = (kCnt - gCnt*<span class="number">29</span>*<span class="number">17</span>) / <span class="number">29</span>
+kCnt = kCnt - <span class="number">29</span>*<span class="number">17</span>*gCnt - sCnt*<span class="number">29</span>
+
+<span class="keyword">return</span> [gCnt,sCnt,kCnt]
+</code></pre><p>[payG,payS,payK] = map(int,contentList[0].split(‘.’))<br>[actPayG,actPayS,actPayK] = map(int,contentList[1].split(‘.’))</p>
+<p>pay = calKun(payG,payS,payK)<br>actPay = calKun(actPayG,actPayS,actPayK)</p>
+<p>if pay &gt; actPay:<br>    print “-“+”.”.join(map(str,tranKun(pay-actPay)))<br>else:<br>    print “.”.join(map(str,tranKun(actPay - pay)))<br>!</p>
+<p>##1038<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-11">input = open(‘testInput.csv’,’r’).readlines()</h1><p>scoreList = map(int,input[1].strip().split(‘ ‘))<br>toCheckList = map(int,input[2].strip().split(‘ ‘)[1:])</p>
+<p>result = [0]*101</p>
+<p>for i in scoreList:<br>    result[i] += 1</p>
+<p>print “ “.join([str(result[v]) for v in toCheckList])<br>!</p>
+<p>##1039<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-12">input = open(‘testInput.csv’,’r’).readlines()</h1><p>sell = input[0].strip()<br>buy = input[1].strip()</p>
+<p>sellDict = dict([(key,sell.count(key)) for key in set(sell)])<br>buyDict = dict([(key,buy.count(key)) for key in set(buy)])</p>
+<p>lessCnt = 0<br>lessFlag = False</p>
+<h1 id="print_buyDict">print buyDict</h1><h1 id="print_sellDict">print sellDict</h1><p>for key in buyDict:<br>    num = buyDict[key] - sellDict.get(key,0)</p>
+<pre><code><span class="keyword">if</span> <span class="built_in">num</span> &gt; <span class="number">0</span>:
+    lessFlag = True
+    lessCnt += <span class="built_in">num</span>
+</code></pre><p>if lessFlag:<br>    print “No” + “ “ + str(lessCnt)<br>else:<br>    print “Yes” + “ “ + str(sum(sellDict.values()) - sum(buyDict.values()))<br>!</p>
+<p>##1040<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-13">input = open(‘testInput.csv’,’r’).readlines()</h1><p>string = input[0].strip()</p>
+<p>def calPAT(string):</p>
+<pre><code>mark = [<span class="number">0</span>]*len(<span class="built_in">string</span>)
+
+index = <span class="number">0</span>
+sumP = <span class="number">0</span>
+sumA = <span class="number">0</span>
+sumT = <span class="number">0</span>
+<span class="keyword">for</span> alpha in <span class="built_in">string</span>:
+
+    <span class="keyword">if</span> alpha == <span class="string">'P'</span>:
+        mark[index] = (<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>)
+        sumP += <span class="number">1</span>
+    elif alpha == <span class="string">'A'</span>:
+        mark[index] = (<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>)
+        sumA += <span class="number">1</span>
+    <span class="keyword">else</span>:
+        mark[index] = (<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)
+        sumT += <span class="number">1</span>
+
+    index += <span class="number">1</span>
+
+index = <span class="number">0</span>
+sumMark = [<span class="number">0</span>]*len(<span class="built_in">string</span>)
+<span class="keyword">for</span> alpha in <span class="built_in">string</span>:
+
+    <span class="keyword">if</span> alpha == <span class="string">'P'</span>:
+        <span class="keyword">if</span> index == <span class="number">0</span>:
+            sumMark[index] = (<span class="number">1</span>,<span class="number">0</span>,sumT)
+        <span class="keyword">else</span>:
+            sumMark[index] = (sumMark[index-<span class="number">1</span>][<span class="number">0</span>] + <span class="number">1</span> ,<span class="number">0</span>,sumMark[index-<span class="number">1</span>][<span class="number">2</span>])
+    elif alpha == <span class="string">'A'</span>:
+        <span class="keyword">if</span> index == <span class="number">0</span>:
+            sumMark[index] = (<span class="number">0</span>,<span class="number">0</span>,sumT)
+        <span class="keyword">else</span>:
+            sumMark[index] = (sumMark[index-<span class="number">1</span>][<span class="number">0</span>],<span class="number">1</span>,sumMark[index -<span class="number">1</span>][<span class="number">2</span>])
+    <span class="keyword">else</span>:
+        <span class="keyword">if</span> index == <span class="number">0</span>:
+            sumMark[index] = (<span class="number">0</span>,<span class="number">0</span>,sumT - <span class="number">1</span>)
+        <span class="keyword">else</span>:
+            sumMark[index] = (sumMark[index-<span class="number">1</span>][<span class="number">0</span>],<span class="number">0</span>,sumMark[index-<span class="number">1</span>][<span class="number">2</span>] - <span class="number">1</span>)
+
+    index += <span class="number">1</span>
+
+<span class="keyword">return</span> sum([<span class="function">p*a*t <span class="title">for</span> <span class="params">(p,a,t)</span> in sumMark])%1000000007</span>
+</code></pre><h1 id="print_calPAT(“APPAAPT”)">print calPAT(“APPAAPT”)</h1><p>print calPAT(string)</p>
+<p>!</p>
+<p>##1041<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-14">input = open(‘testInput.csv’,’r’).readlines()</h1><p>cnt = int(input[0].strip())<br>contentList = input[1:cnt+1]<br>checkCnt = int(input[-2].strip())<br>checkContentList = input[-1].strip().split(‘ ‘)</p>
+<p>check2ID_Sit_Dict = {}</p>
+<p>for content in contentList:<br>    [id,check,sit] = content.strip().split(‘ ‘)<br>    check2ID_Sit_Dict[check] = “ “.join([id,sit])</p>
+<p>for checkContent in checkContentList:</p>
+<pre><code><span class="comment"># print checkContent</span>
+<span class="built_in">print</span> check2ID_Sit_Dict[checkContent]
+</code></pre><p>!</p>
+<p>##1042<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>from operator import itemgetter<br>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-15">input = open(‘testInput.csv’,’r’).readlines()</h1><p>content = input[0].strip()<br>alphList = [0]*26</p>
+<p>def calPos(alph):</p>
+<pre><code>return <span class="function"><span class="title">ord</span><span class="params">(alph)</span></span> - <span class="function"><span class="title">ord</span><span class="params">(<span class="string">'a'</span>)</span></span>
+</code></pre><p>def calAlph(pos):</p>
+<pre><code><span class="keyword">return</span> <span class="keyword">chr</span>(<span class="keyword">pos</span> + <span class="keyword">ord</span>(<span class="string">'a'</span>))
+</code></pre><p>for alpha in content:</p>
+<pre><code><span class="keyword">if</span> alpha.<span class="function"><span class="title">isalpha</span><span class="params">()</span></span>:
+    alphList[<span class="function"><span class="title">calPos</span><span class="params">(str.lower(alpha)</span></span>)] += <span class="number">1</span>
+<span class="keyword">else</span>:
+    continue
+</code></pre><p>maxCnt = -999<br>index = -999<br>for i,j in zip(alphList,range(len(alphList))):<br>    if i &gt; maxCnt :<br>        maxCnt = i<br>        index = j<br>    else:<br>        continue</p>
+<p>print calAlph(index) + “ “ + str(maxCnt)<br>!</p>
+<p>##1043<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-16">input = open(‘testInput.csv’,’r’).readlines()</h1><p>alph = input[0].strip()</p>
+<p>dict = dict([(key,alph.count(key)) for key in set(alph)])</p>
+<p>tmp = “PATest”</p>
+<p>result = ‘’<br>while sum([dict[i] for i in tmp if i in dict]) != 0:</p>
+<pre><code><span class="keyword">for</span> i <span class="keyword">in</span> tmp:
+    <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> dict:
+        <span class="keyword">continue</span>
+    <span class="keyword">if</span> dict[i] !=<span class="number">0</span> :
+        <span class="literal">result</span> += i
+        dict[i] -= <span class="number">1</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">continue</span>
+</code></pre><p>print result<br>!</p>
+<p>##1044<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-5">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>contentList = input[1:]<br>oneBase = dict(zip(map(str,range(10))+[‘a’,’b’,’c’],(‘tret’,’jan’,’feb’,’mar’,’apr’,’may’,’jun’,’jly’,’aug’,’sep’,’oct’,’nov’,’dec’)))<br>twoBase = dict(zip(map(str,range(10))+[‘a’,’b’,’c’],(‘’,’tam’,’hel’,’maa’,’huh’,’tou’,’kes’,’hei’,’elo’,’syy’,’lok’,’mer’,’jou’)))</p>
+<p>alpha1Base = dict(zip((‘tret’,’jan’,’feb’,’mar’,’apr’,’may’,’jun’,’jly’,’aug’,’sep’,’oct’,’nov’,’dec’),range(13)))<br>alpha2Base = dict(zip((‘’,’tam’,’hel’,’maa’,’huh’,’tou’,’kes’,’hei’,’elo’,’syy’,’lok’,’mer’,’jou’),[i*13 for i in range(13)]))<br>alpha1Base.update(alpha2Base)<br>alphaBase = alpha1Base<br>print twoBase</p>
+<p>def tranBase(num,base):</p>
+<pre><code><span class="keyword">if</span> <span class="built_in">num</span> &lt; base <span class="operator">and</span> <span class="built_in">num</span> &lt;=<span class="number">9</span>:
+    <span class="constant">return</span> str(<span class="built_in">num</span>)
+<span class="keyword">if</span> <span class="built_in">num</span> &lt; base <span class="operator">and</span> <span class="built_in">num</span> &gt; <span class="number">9</span>:
+
+    <span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">10</span>:
+        <span class="constant">return</span> <span class="string">'a'</span>
+    <span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">11</span>:
+        <span class="constant">return</span> <span class="string">'b'</span>
+    <span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">12</span>:
+        <span class="constant">return</span> <span class="string">'c'</span>
+
+<span class="keyword">else</span>:
+    <span class="constant">return</span> tranBase(<span class="built_in">num</span>/base,base)+tranBase(<span class="built_in">num</span> - <span class="built_in">num</span>/base*base,base)
+</code></pre><p>for content in contentList:<br>    num = content.strip()</p>
+<pre><code><span class="keyword">if</span> num.<span class="function"><span class="title">isdigit</span><span class="params">()</span></span>:
+    num = (<span class="string">'0'</span>+<span class="function"><span class="title">tranBase</span><span class="params">(int(num)</span></span>,<span class="number">13</span>))[-<span class="number">2</span>:]
+    print (twoBase[num[<span class="number">0</span>]]+<span class="string">' '</span>+oneBase[num[<span class="number">1</span>]]).<span class="function"><span class="title">strip</span><span class="params">()</span></span>
+<span class="keyword">else</span>:
+    alphaList = num.<span class="function"><span class="title">split</span><span class="params">(<span class="string">' '</span>)</span></span>
+    print <span class="function"><span class="title">sum</span><span class="params">([alphaBase[v] for v in alphaList])</span></span>
+</code></pre><p>!</p>
+<p>##1046<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-17">input = open(‘testInput.csv’,’r’).readlines()</h1><p>cnt = input[0].strip()<br>comList = input[1:]</p>
+<p>aCnt = 0<br>bCnt = 0<br>for com in comList:<br>    [a1,a2,b1,b2] = map(int,com.strip().split(‘ ‘))<br>    num = a1 + b1<br>    if num == a2 and num != b2:<br>        bCnt += 1<br>    elif num != a2 and num == b2:<br>        aCnt += 1<br>    else:<br>        continue</p>
+<p>print “%s %s”%(str(aCnt),str(bCnt))<br>!</p>
+<p>##1047<br>! python<br><strong>author</strong> = ‘simonjiang’<br>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-18">input = open(‘testInput.csv’,’r’).readlines()</h1><p>cnt = input[0].strip()<br>contentList = input[1:]</p>
+<p>scoreDict = {}<br>for content in contentList:<br>    [team,score] = content.split(‘ ‘)<br>    teamId = team.split(‘-‘)[0]</p>
+<pre><code><span class="keyword">if</span> teamId not <span class="keyword">in</span> scoreDict:
+    scoreDict[teamId] = <span class="function"><span class="title">int</span><span class="params">(score)</span></span>
+<span class="keyword">else</span>:
+    scoreDict[teamId] += <span class="function"><span class="title">int</span><span class="params">(score)</span></span>
+</code></pre><p>result =  sorted(zip(scoreDict.keys(),scoreDict.values()),key=lambda x:x[1],reverse= True)[0]</p>
+<p>print result[0] + ‘ ‘ + str(result[1])<br>!</p>
+<p>##1049<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-6">input = sys.stdin.readlines()</h1><h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-19">input = open(‘testInput.csv’,’r’).readlines()</h1><p>#</p>
+<h1 id="contentList_=_float,input[1]-strip()-split(‘_‘)">contentList = float,input[1].strip().split(‘ ‘)</h1><h1 id="def_calAllSituation(contentList):">def calAllSituation(contentList):</h1><pre><code><span class="preprocessor"># print contentList,len(contentList)</span>
+<span class="preprocessor"># if len(contentList) == 0:</span>
+<span class="preprocessor">#     return ''</span>
+<span class="preprocessor"># else:</span>
+<span class="preprocessor">#     return [contentList[0],calAllSituation(contentList[1:])),calAllSituation(contentList[1:]]</span>
+</code></pre><p>#</p>
+<h1 id="print_calAllSituation(“abc”)">print calAllSituation(“abc”)</h1><p>!</p>
+<p>##1053<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-7">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>[k,E,D] = map(float,input[0].strip().split(‘ ‘))<br>contentList = input[1:]</p>
+<p>maybeEmpty = 0<br>empty = 0</p>
+<h1 id="print_k,E,D">print k,E,D</h1><p>for content in contentList:<br>    content = content.strip().split(‘ ‘)<br>    useStatus = map(float,content[1:])<br>    days = int(content[0])</p>
+<pre><code>lowerThanE = sum([<span class="number">1</span> <span class="keyword">for</span> i in useStatus <span class="keyword">if</span> i &lt; E])
+
+maybeEmpty += (<span class="number">1</span> <span class="keyword">if</span> lowerThanE &lt;= D and lowerThanE &gt; <span class="number">0.5</span>*days <span class="keyword">else</span> <span class="number">0</span>)
+empty += (<span class="number">1</span> <span class="keyword">if</span> lowerThanE &gt; D and lowerThanE &gt; <span class="number">0.5</span>*days <span class="keyword">else</span> <span class="number">0</span>)
+
+<span class="preprocessor"># print <span class="string">"fuck"</span>,D&lt;lowerThanE,lowerThanE &gt; <span class="number">0.5</span>*days,lowerThanE,days,D</span>
+<span class="preprocessor"># print maybeEmpty,empty</span>
+</code></pre><p>print “%.1f%% %.1f%%”%(round(maybeEmpty/k<em>100,1),round(empty/k</em>100,1))<br>!</p>
+<p>##1055<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys<br>from operator import itemgetter</p>
+<h1 id="input_=_sys-stdin-readlines()-8">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>[K,N] = map(int,input[0].strip().split(‘ ‘))<br>contentList = input[1:]</p>
+<p>def printName(toSortList):</p>
+<pre><code>sortedList = toSortList
+lenOfList = len(sortedList)
+
+<span class="operator"><span class="keyword">start</span> = lenOfList/<span class="number">2</span>
+<span class="keyword">position</span> = [<span class="number">0</span>]*lenOfList
+<span class="keyword">for</span> <span class="keyword">i</span> <span class="keyword">in</span> <span class="keyword">range</span>(lenOfList):
+
+
+    <span class="keyword">if</span> <span class="keyword">i</span> %<span class="number">2</span> == <span class="number">1</span>:
+        # print <span class="keyword">i</span>,<span class="keyword">start</span> - <span class="keyword">i</span>/<span class="number">2</span> - <span class="number">1</span>,sortedList[<span class="keyword">i</span>]
+        <span class="keyword">position</span>[<span class="keyword">start</span> - <span class="keyword">i</span>/<span class="number">2</span> - <span class="number">1</span>] = sortedList[<span class="keyword">i</span>][<span class="number">0</span>]
+
+    <span class="keyword">else</span>:
+        # print <span class="keyword">i</span>,<span class="keyword">start</span> + <span class="keyword">i</span>/<span class="number">2</span> ,sortedList[<span class="keyword">i</span>]
+        <span class="keyword">position</span>[<span class="keyword">start</span> + <span class="keyword">i</span>/<span class="number">2</span> ] = sortedList[<span class="keyword">i</span>][<span class="number">0</span>]
+
+<span class="keyword">return</span> <span class="string">" "</span>.<span class="keyword">join</span>(<span class="keyword">position</span>)</span>
+</code></pre><p>toSortList = [content.strip().split(‘ ‘) for content in  contentList ]<br>toSortList = [(v[0],v[1],-int(v[1]))for v in toSortList]</p>
+<p>sortedList =  sorted(toSortList,key = itemgetter(2,0))</p>
+<h1 id="print_sortedList">print sortedList</h1><p>for i in range(N):</p>
+<pre><code>if i == <span class="operator">0:
+    # print sortedList[(<span class="keyword">K</span>/<span class="keyword">N</span>*<span class="keyword">i</span>):(<span class="keyword">K</span>/<span class="keyword">N</span>*(<span class="keyword">i</span>+<span class="number">1</span>) + <span class="keyword">K</span>%<span class="keyword">N</span>)] ,<span class="string">'fuck'</span>
+    print printName(sortedList[<span class="number">0</span>:(<span class="keyword">K</span>/<span class="keyword">N</span>+ <span class="keyword">K</span>%<span class="keyword">N</span>)])
+<span class="keyword">else</span>:
+    # print sortedList[(<span class="keyword">K</span>/<span class="keyword">N</span>*<span class="keyword">i</span> + <span class="keyword">K</span>%<span class="keyword">N</span>) :(<span class="keyword">K</span>/<span class="keyword">N</span>*(<span class="keyword">i</span>+<span class="number">1</span>) + <span class="keyword">K</span>%<span class="keyword">N</span>)],<span class="string">'fuck'</span>
+    print printName(sortedList[(<span class="keyword">K</span>/<span class="keyword">N</span>*<span class="keyword">i</span> + <span class="keyword">K</span>%<span class="keyword">N</span>) :(<span class="keyword">K</span>/<span class="keyword">N</span>*(<span class="keyword">i</span>+<span class="number">1</span>) + <span class="keyword">K</span>%<span class="keyword">N</span>)])</span>
+</code></pre><p>!</p>
+<p>##1056<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-20">input = open(‘testInput.csv’,’r’).readlines()</h1><p>numList = input[0].strip().split(‘ ‘)</p>
+<p>result = 0<br>for num in numList[1:]:<br>    tmp = [num+i for i in numList[1:] if num != i]</p>
+<pre><code><span class="comment"># print num,tmp</span>
+<span class="literal">result</span> += sum(map(<span class="type">int</span>,tmp))
+</code></pre><p>print result<br>!</p>
+<p>##1057<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(“testInput-csv”,’r’)-readlines()-8">input = open(“testInput.csv”,’r’).readlines()</h1><p>string = input[0].strip()</p>
+<p>def tranBase(num,base):</p>
+<pre><code>return <span class="function"><span class="title">str</span><span class="params">(num)</span></span> <span class="keyword">if</span> num &lt; base <span class="keyword">else</span> <span class="function"><span class="title">tranBase</span><span class="params">(num/base,base)</span></span> + <span class="function"><span class="title">tranBase</span><span class="params">(num - (num/base)</span></span>*base,base)
+</code></pre><p>sumNum = 0<br>for alpha in string:<br>    if alpha.isalpha():<br>        sumNum += (ord(alpha.lower()) - ord(‘a’) +1)<br>    else:<br>        continue</p>
+<h1 id="print_sumNum">print sumNum</h1><p>sumNum = tranBase(sumNum,2)</p>
+<h1 id="print_sumNum-1">print sumNum</h1><p>print str(sumNum.count(‘0’)) + “ “ + str(sumNum.count(‘1’))<br>!</p>
+<p>##1058<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<h1 id="input_=_sys-stdin-readlines()-9">input = sys.stdin.readlines()</h1><p>input = open(‘testInput.csv’,’r’).readlines()</p>
+<p>[pCnt,qCnt] = map(int,input[0].strip().split(‘ ‘))<br>qList = input[1:qCnt+1]<br>pList = input[qCnt+1:]</p>
+<p>wrongCntList = [0]<em>qCnt<br>scoreList = [0]</em>pCnt<br>qDict = {}</p>
+<p>index = 0<br>for q in qList:</p>
+<pre><code><span class="comment"># print q</span>
+tmp = <span class="keyword">q</span>.strip().<span class="keyword">split</span>(<span class="string">' '</span>)
+qDict[<span class="keyword">index</span>] = [<span class="keyword">int</span>(tmp[<span class="number">0</span>]),<span class="string">" "</span>.<span class="keyword">join</span>(tmp[<span class="number">3</span>:])]
+<span class="keyword">index</span> += <span class="number">1</span>
+</code></pre><p>pIndex = 0<br>for p in pList:<br>    tmp =  p.strip()[1:-1].split(‘) (‘)<br>    qIndex = 0<br>    for answer in tmp:</p>
+<pre><code>    <span class="preprocessor"># print <span class="string">"fuck"</span>,qDict[qIndex][<span class="number">1</span>],answer.split(<span class="string">' '</span>,<span class="number">1</span>)[<span class="number">1</span>]</span>
+
+    <span class="function"><span class="keyword">if</span> <span class="title">set</span><span class="params">(qDict[qIndex][<span class="number">1</span>].split(<span class="string">' '</span>)</span>) !</span>= <span class="built_in">set</span>(answer.split(<span class="string">' '</span>,<span class="number">1</span>)[<span class="number">1</span>].split(<span class="string">' '</span>)):
+        wrongCntList[qIndex] += <span class="number">1</span>
+    <span class="keyword">else</span>:
+        scoreList[pIndex] += qDict[qIndex][<span class="number">0</span>]
+
+    <span class="preprocessor"># print <span class="string">"fuck"</span>,scoreList,wrongCntList</span>
+    <span class="preprocessor"># print <span class="string">"fuck"</span>,<span class="string">"right:"</span>,qDict[qIndex][<span class="number">1</span>],<span class="string">"answer:"</span>,answer.split(<span class="string">' '</span>,<span class="number">1</span>)[<span class="number">1</span>]</span>
+    <span class="preprocessor"># print <span class="string">"*"</span>*<span class="number">20</span></span>
+
+    qIndex += <span class="number">1</span>
+
+pIndex += <span class="number">1</span>
+</code></pre><h1 id="print_wrongCntList">print wrongCntList</h1><h1 id="print_scoreList">print scoreList</h1><p>print “\n”.join(map(str,scoreList))</p>
+<p>if sum(wrongCntList) == 0:<br>    print “too simple”<br>else:<br>    maxCnt = max(wrongCntList)<br>    print “ “.join([str(maxCnt)] + map(str,[index+1 for v,index in zip(wrongCntList,range(qCnt)) if v == maxCnt]))</p>
+<h1 id="print_pCnt,qCnt">print pCnt,qCnt</h1><h1 id="print_qList">print qList</h1><h1 id="print_pList">print pList</h1><p>!</p>
+<p>##1059<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-21">input = open(‘testInput.csv’,’r’).readlines()</h1><p>#<br>idCnt = int(input[0].strip())<br>toCheckIDList = input[1:idCnt+1]<br>#<br>checkIDList = input[idCnt+2:]</p>
+<p>def position(num):</p>
+<pre><code><span class="keyword">if</span> <span class="built_in">num</span> == -<span class="number">1</span>:
+    <span class="keyword">return</span> <span class="string">'Are you kidding?'</span>
+
+<span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">0</span>:
+    <span class="keyword">return</span> <span class="string">'Checked'</span>
+
+<span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">1</span>:
+    <span class="keyword">return</span> <span class="string">'Mystery Award'</span>
+
+<span class="keyword">if</span> <span class="built_in">num</span> == <span class="number">2</span>:
+    <span class="keyword">return</span> <span class="string">'Minion'</span>
+
+<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,<span class="built_in">num</span>/<span class="number">2</span>+<span class="number">1</span>):
+
+    <span class="keyword">if</span> <span class="built_in">num</span> % i == <span class="number">0</span>:
+        <span class="keyword">return</span> <span class="string">'Chocolate'</span>
+
+<span class="keyword">return</span> <span class="string">'Minion'</span>
+</code></pre><p>toCheckDict = dict([(id.strip(),index+1) for id,index in zip(toCheckIDList,range(idCnt))])</p>
+<p>for id in checkIDList:</p>
+<pre><code>id = id.<span class="function"><span class="title">strip</span><span class="params">()</span></span>
+<span class="keyword">if</span> id <span class="keyword">in</span> toCheckDict:
+    print id+<span class="string">": "</span>+<span class="function"><span class="title">position</span><span class="params">(toCheckDict[id])</span></span>
+    toCheckDict[id] = <span class="number">0</span>
+<span class="keyword">else</span>:
+     print id+<span class="string">": "</span>+<span class="function"><span class="title">position</span><span class="params">(-<span class="number">1</span>)</span></span>
+</code></pre><p>!</p>
+<p>##1061<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-22">input = open(‘testInput.csv’,’r’).readlines()</h1><p>[pCnt,kCnt] = input[0].strip().split(‘ ‘)<br>scoreList = map(int,input[1].strip().split(‘ ‘))<br>keyList = input[2].strip().split(‘ ‘)<br>answerList = input[3:]</p>
+<p>for answer in answerList:<br>    score = sum([i for i,j,k in zip(scoreList,keyList,answer.strip().split(‘ ‘)) if j == k])<br>    print score</p>
+<p>!</p>
+<p>##1063<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-23">input = open(‘testInput.csv’,’r’).readlines()</h1><p>cnt = input[0].strip()<br>contentList = input[1:]</p>
+<p>maxRad = -999</p>
+<p>for content in contentList:<br>    [r,i] = map(int,content.split(‘ ‘))<br>    tmp = (r<strong>2+i</strong>2)**0.5<br>    maxRad = maxRad if tmp &lt;= maxRad else tmp</p>
+<p>print “%.2f”%maxRad<br>!</p>
+<p>##1064<br>! python<br><strong>author</strong> = ‘simonjiang’</p>
+<p>import sys</p>
+<p>input = sys.stdin.readlines()</p>
+<h1 id="input_=_open(‘testInput-csv’,’r’)-readlines()-24">input = open(‘testInput.csv’,’r’).readlines()</h1><p>content = input[-1].strip().split(‘ ‘)</p>
+<p>def calFriSum(alph):</p>
+<pre><code>return sum<span class="list">(<span class="keyword">map</span><span class="list">(<span class="keyword">int</span>,alph)</span>)</span>
+</code></pre><p>result = []</p>
+<p>for num in content:<br>    cnt = calFriSum(num)<br>    if cnt in result:<br>        continue<br>    else:<br>        result.append(cnt)</p>
+<p>print len(result)<br>print “ “.join(map(str,sorted(result)))</p>
+<h1 id="print_result">print result</h1><p>!</p>
 
       
     </div>
