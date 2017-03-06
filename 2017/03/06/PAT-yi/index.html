@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PAT-乙级 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这里记录的是在PAT上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT-乙级">
+<meta property="og:url" content="http://yoursite.com/2017/03/06/PAT-yi/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这里记录的是在PAT上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。">
+<meta property="og:updated_time" content="2017-03-06T05:53:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PAT-乙级">
+<meta name="twitter:description" content="这里记录的是在PAT上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PAT-yi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/PAT-yi/" class="article-date">
+  <time datetime="2017-03-06T01:15:36.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PAT-乙级
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里记录的是在<a href="http://www.patest.cn/" target="_blank" rel="external">PAT</a>上做的乙级题目。都是用Python实现，由于用Python做OJ题目天生残疾，会有几个测试选项超时通不过，但是对于绝大部分的题目还是够用的，目测在95%以上。实际我也在2017年3月参加乙级考试了，成绩很水，有一道题两个选项没通过一个超时，最终是94分。在此记录一下自己的刷题过程。<br><a id="more"></a></p>
+<h2 id="1001">1001</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">num = int(sys.stdin.readline())</div><div class="line"></div><div class="line">cnt = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">while</span> num != <span class="number">1</span>:</div><div class="line">  <span class="keyword">if</span> num % <span class="number">2</span> !=<span class="number">0</span>:</div><div class="line">    num = (<span class="number">3</span>*num + <span class="number">1</span>)/<span class="number">2</span></div><div class="line">  <span class="keyword">else</span>:</div><div class="line">    num = num / <span class="number">2</span></div><div class="line">  cnt += <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> cnt</div></pre></td></tr></table></figure>
+<h2 id="1002">1002</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'simonjiang'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">num2py</span><span class="params">(i)</span>:</span></div><div class="line">    <span class="keyword">if</span> i == <span class="string">'1'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'yi'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'2'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'er'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'3'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'san'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'4'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'si'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'5'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'wu'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'6'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'liu'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'7'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'qi'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'8'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'ba'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'9'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'jiu'</span></div><div class="line">    <span class="keyword">elif</span> i == <span class="string">'0'</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'ling'</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> <span class="string">'cuo'</span></div><div class="line"></div><div class="line"></div><div class="line">num  = sys.stdin.readline().strip()</div><div class="line"><span class="comment"># num = '1234567890987654321123456789'</span></div><div class="line"></div><div class="line">sum = sum([int(i) <span class="keyword">for</span> i <span class="keyword">in</span> num])</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">' '</span>.join([num2py(i) <span class="keyword">for</span> i <span class="keyword">in</span> str(sum)])</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/06/PAT-yi/" data-id="cizxppsey0001h298y60zq79b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/06/PAT-乙/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PAT-乙
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/17/lianghua/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">用Python做量化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/06/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/06/PAT-乙/">PAT-乙</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/06/PAT-yi/">PAT-乙级</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/17/lianghua/">用Python做量化</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/09/8-09/">project_euler刷题报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
