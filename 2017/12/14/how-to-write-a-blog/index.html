@@ -181,14 +181,18 @@
 <li>域名我是在阿里云上买，简单方便。</li>
 <li>域名在Dns解析中绑定vps中的地址ip。阿里云中有设置的地方。</li>
 </ol>
-<h3 id="vps上所需要做的事情">vps上所需要做的事情</h3><ol>
+<h3 id="vps上所需要做的事情">vps上所需要做的事情</h3><blockquote>
+<p><a href="https://lamp.sh/install.html" target="_blank" rel="external">https://lamp.sh/install.html</a> 安装是1.5版本</p>
+<ol>
 <li>vps是用Google Clound Engine，免费一年而且速度也够给力。</li>
 <li>使用的lnmp一键安装，一切安装默认配置即可。</li>
+<li>lnmp vhost add<br> 4.1 输入对应的域名，和博客地址，其他都选无即可。</li>
 <li>更改lnmp中的ngix配置，使其指向域名和部署博客的目录。</li>
 <li>从Github上拉hexo的项目到vps中的部署路径。</li>
-<li>重启ngix服务。</li>
+<li>重启ngix服务。 lnmp ngix restart</li>
 <li>设置个crontab定时任务，定时更新博客部署路径中的文件。git pull。</li>
 </ol>
+</blockquote>
 <h3 id="本机上所需要做的事情">本机上所需要做的事情</h3><ol>
 <li>部署hexo到Github上。</li>
 <li>然后之后的事情就是在本地上写文章，推送到Github上即可。</li>
@@ -301,7 +305,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; mengcheng 2017
+                    Copyright &copy; mengcheng 2018
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
                     <br>
