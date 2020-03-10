@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="//lib.baomitu.com/clipboard.js/1.6.1/clipboard.min.js"></script>
+</head>
+<body>
+ 
+<div class="copy_btn" data-clipboard-text="">一键复制</div>
+ 
+<script>
+    //点击动态添加复制内容
+    $(".copy_btn").click(function(){
+        alert("已复制");
+        var contentext = 'iron man123456789';      //复制内容（后台传过来的淘口令）
+        $(".copy_btn").attr("data-clipboard-text",contentext);
+    });
+    //触发方法
+    var clipboard = new Clipboard('.copy_btn');
+    //回调函数（成功、失败）
+    clipboard.on('success', function(e) {
+        console.log(e);
+    });
+ 
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+</script>
+</body>
